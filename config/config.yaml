@@ -1,0 +1,31 @@
+!CardCombinationGenerators
+generators:
+  kingdom_cards:
+    !CardCombinationGenerator
+    sum_eq: 10
+    card_totals:
+      !CardTotals
+      action_low: 98
+      other_low: 16
+      action_liaison_low: 4
+      other_liaison_low: 1
+      action_fate_low: 3
+      action_doom_low: 1
+      druid: 1
+      action_high: 246
+      other_high: 37
+      action_liaison_high: 4
+      action_looter_high: 3
+      action_fate_high: 3
+      other_fate_high: 1
+      action_doom_high: 4
+      other_doom_high: 1
+      knights: 1
+  non_cards:
+    !CardCombinationGenerator
+    sum_le: 2
+    card_totals:
+      !CardTotals
+      landscapes: 113
+      obelisk: 1
+      way_of_the_mouse: 1
