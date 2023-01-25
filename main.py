@@ -27,7 +27,7 @@ def kingdom_count(landscapes, obelisk, way_of_the_mouse, action_low, other_low, 
     count_unordered *= comb(3, action_looter_high)
     count_unordered *= comb(3, action_fate_high)
     count_unordered *= comb(4, action_doom_high)
-    count_unordered *= comb(115, landscapes + obelisk + way_of_the_mouse)
+    count_unordered *= comb(113, landscapes)
 
     if obelisk:
         count_unordered *= max(1, action_low + action_liaison_low + action_fate_low + action_doom_low + druid + action_high + action_liaison_high + action_looter_high + action_fate_high + action_doom_high + knights + y_witch)
