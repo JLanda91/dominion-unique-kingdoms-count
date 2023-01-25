@@ -1,8 +1,7 @@
 from util.constrained_product import ProductEQ, ProductGE, ProductLE
-from itertools import product
 
 
-class CardTotals:
+class GenericAttributeMap:
     def __init__(self, **kwargs):
         self.__dict__ = kwargs
 
@@ -25,7 +24,7 @@ class CardTotals:
         return self.__dict__.__repr__()
 
 
-class CardCombinationGenerator:
+class CardTypeCombinationGenerator:
     __constraints = {
         'sum_eq': ProductEQ,
         'sum_ge': ProductGE,
@@ -33,25 +32,24 @@ class CardCombinationGenerator:
     }
 
     def __init__(self, card_totals, **kwargs):
-        if all(kwargs.get(x, None) is None for x in CardCombinationGenerator.__constraints):
-            raise KeyError(f"CardCombinationGenerator must contain either of {', '.join(CardCombinationGenerator.__constraints)}")
+        if all(kwargs.get(x, None) is None for x in CardTypeCombinationGenerator.__constraints):
+            raise KeyError(f"CardTypeCombinationGenerator must contain either of {', '.join(CardTypeCombinationGenerator.__constraints)}")
         self.card_totals = card_totals
-        for constraint, gen in CardCombinationGenerator.__constraints.items():
+        for constraint, gen in CardTypeCombinationGenerator.__constraints.items():
             if (s := kwargs.pop(constraint, None)) is not None:
                 self.__constraint = constraint
                 self.__s = s
-                self.__gen = (CardTotals(**dict(zip(self.card_totals.keys(), combination))) for combination in gen(*(range(t+1) for t in self.card_totals.values()), s=s))
+                self.__gen = gen
+                # self.__gen = (GenericAttributeMap(**dict(zip(self.card_totals.keys(), combination))) for combination in gen(*(range(t+1) for t in self.card_totals.values()), s=s))
 
-    def __iter__(self):
-        return iter(self.__gen)
+    def __call__(self):
+        return (GenericAttributeMap(**dict(zip(self.card_totals.keys(), combination))) for combination in self.__gen(*(range(t+1) for t in self.card_totals.values()), s=self.__s))
 
     def __repr__(self):
         return f"Card combinations generator with {self.__constraint} = {self.__s} and card totals {self.card_totals}"
 
 
-class CardCombinationGenerators:
+class Config:
     def __init__(self, generators):
-        self.__dict__ = generators
+        self.generators = generators
 
-    def __iter__(self):
-        return iter(product(*(iter(gen) for gen in self.__dict__.values())))
