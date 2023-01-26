@@ -1,3 +1,5 @@
+from time import perf_counter_ns
+
 from util.constrained_product import ProductEQ, ProductGE, ProductLE
 
 
@@ -32,18 +34,24 @@ class CardTypeCombinationGenerator:
     }
 
     def __init__(self, card_totals, **kwargs):
-        if all(kwargs.get(x, None) is None for x in CardTypeCombinationGenerator.__constraints):
-            raise KeyError(f"CardTypeCombinationGenerator must contain either of {', '.join(CardTypeCombinationGenerator.__constraints)}")
         self.card_totals = card_totals
+        self.call_t = 0
+        self.n = 0
         for constraint, gen in CardTypeCombinationGenerator.__constraints.items():
             if (s := kwargs.pop(constraint, None)) is not None:
                 self.__constraint = constraint
                 self.__s = s
                 self.__gen = gen
-                # self.__gen = (GenericAttributeMap(**dict(zip(self.card_totals.keys(), combination))) for combination in gen(*(range(t+1) for t in self.card_totals.values()), s=s))
+                break
+        else:
+            raise KeyError(f"CardTypeCombinationGenerator must contain either of: {', '.join(CardTypeCombinationGenerator.__constraints)}")
 
     def __call__(self):
-        return (GenericAttributeMap(**dict(zip(self.card_totals.keys(), combination))) for combination in self.__gen(*(range(t+1) for t in self.card_totals.values()), s=self.__s))
+        tmp_t = perf_counter_ns()
+        result = self.__gen(*(range(t + 1) for t in self.card_totals.values()), s=self.__s)
+        self.call_t += perf_counter_ns() - tmp_t
+        self.n += 1
+        return result
 
     def __repr__(self):
         return f"Card combinations generator with {self.__constraint} = {self.__s} and card totals {self.card_totals}"
@@ -52,4 +60,3 @@ class CardTypeCombinationGenerator:
 class Config:
     def __init__(self, generators):
         self.generators = generators
-
