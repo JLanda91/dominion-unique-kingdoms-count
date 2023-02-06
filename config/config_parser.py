@@ -57,5 +57,7 @@ class CardTypeCombinationGenerator:
 
 
 class Config:
-    def __init__(self, generators):
+    def __init__(self, generators, other_card_totals, constants):
         self.generators = generators
+        self.other_card_totals = other_card_totals
+        self.constants = constants

@@ -25,3 +25,10 @@ generators: !GenericAttributeMap
       landscapes: 113
       obelisk: 1
       way_of_the_mouse: 1
+other_card_totals: !GenericAttributeMap
+  allies: 23
+  boons: 12
+  hexes: 12
+  knights: 10
+constants: !GenericAttributeMap
+  druid_boon_picks: 3

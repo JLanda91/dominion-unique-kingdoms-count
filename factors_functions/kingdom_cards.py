@@ -38,13 +38,13 @@ def kingdom_cards_factors(
                  other_doom_high
 
     result_unordered = binomial_product \
-                      * mul_if(druid, DRUID_MULTIPLIER) \
-                      * mul_if(liaison_total, LIAISON_MULTIPLIER)
+                      * mul_if(druid, DRUID_BOON_CHOICES) \
+                      * mul_if(liaison_total, LIAISON_ALLY_CHOICES)
 
     result_ordered = result_unordered \
-                    * mul_if(fate_total, (F_9 if druid else F_12)) \
-                    * mul_if(doom_total, F_12) \
-                    * mul_if(knights, F_10) \
+                    * mul_if(fate_total, (BOON_SHUFFLE_CHOICES_DRUID if druid else BOON_SHUFFLE_CHOICES_NO_DRUID)) \
+                    * mul_if(doom_total, HEX_SHUFFLE_CHOICES) \
+                    * mul_if(knights, KNIGHTS_SHUFFLE_CHOICES) \
                     * mul_if(action_looter_high,
                              NUM_WAYS_STACKING_20_CARDS_FROM_5_PILES_EACH_WITH_10_IDENTICAL_CARDS)
 
