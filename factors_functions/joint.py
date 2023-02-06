@@ -1,5 +1,5 @@
 from util.constants import *
-from util.conditional_multiply import mul_if
+from util.conditional_mul import mul_if
 
 
 def joint_factors(

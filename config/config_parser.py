@@ -1,6 +1,6 @@
 from time import perf_counter_ns
 
-from util.constrained_product import ProductEQ, ProductGE, ProductLE
+from util.generators.constrained_product import ProductEQ, ProductLE
 
 
 class GenericAttributeMap:
@@ -29,7 +29,6 @@ class GenericAttributeMap:
 class CardTypeCombinationGenerator:
     __constraints = {
         'sum_eq': ProductEQ,
-        'sum_ge': ProductGE,
         'sum_le': ProductLE,
     }
 

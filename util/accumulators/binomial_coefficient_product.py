@@ -5,7 +5,5 @@ from math import comb
 
 
 def binomial_coefficient_product(n_collection, k_collection):
-    return reduce(mul,
-                  starmap(comb, zip(n_collection, k_collection)),
-                  1)
+    return reduce(mul, starmap(comb, zip(n_collection, k_collection)), 1)
 
