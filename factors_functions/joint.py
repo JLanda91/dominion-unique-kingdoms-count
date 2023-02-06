@@ -36,7 +36,7 @@ def joint_factors(
 
     action_high_total = action_high + \
                         action_liaison_high + \
-                        action_fate_low + \
+                        action_fate_high + \
                         action_looter_high + \
                         action_doom_high + \
                         knights
