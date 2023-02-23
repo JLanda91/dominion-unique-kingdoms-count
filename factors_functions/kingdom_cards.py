@@ -44,8 +44,8 @@ def kingdom_cards_factors(
     result_ordered = result_unordered \
                     * mul_if(fate_total, (BOON_SHUFFLE_CHOICES_DRUID if druid else BOON_SHUFFLE_CHOICES_NO_DRUID)) \
                     * mul_if(doom_total, HEX_SHUFFLE_CHOICES) \
-                    * mul_if(knights, KNIGHTS_SHUFFLE_CHOICES) \
+                    * mul_if(knights, KNIGHT_SHUFFLE_CHOICES) \
                     * mul_if(action_looter_high,
-                             NUM_WAYS_STACKING_20_CARDS_FROM_5_PILES_EACH_WITH_10_IDENTICAL_CARDS)
+                             RUINS_CHOICES)
 
     return result_unordered, result_ordered

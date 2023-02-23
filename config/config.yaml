@@ -30,5 +30,7 @@ other_card_totals: !GenericAttributeMap
   boons: 12
   hexes: 12
   knights: 10
+  ruins_types: 5
+  ruins_per_type: 10
 constants: !GenericAttributeMap
   druid_boon_picks: 3
