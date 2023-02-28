@@ -1,7 +1,7 @@
 import os
 import yaml
 
-from config.config_parser import *
+from config.types import *
 
 
 class ConfigLoader(yaml.SafeLoader):
