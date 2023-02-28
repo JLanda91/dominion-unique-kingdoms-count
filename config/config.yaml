@@ -1,8 +1,7 @@
-!Config
-generators: !GenericAttributeMap
+generators:
   kingdom_cards: !CardTypeCombinationGenerator
     sum_eq: 10
-    card_totals: !GenericAttributeMap
+    card_totals:
       action_low: 98
       other_low: 16
       action_liaison_low: 4
@@ -21,16 +20,16 @@ generators: !GenericAttributeMap
       knights: 1
   non_cards: !CardTypeCombinationGenerator
     sum_le: 2
-    card_totals: !GenericAttributeMap
+    card_totals:
       landscapes: 113
       obelisk: 1
       way_of_the_mouse: 1
-other_card_totals: !GenericAttributeMap
+other_card_totals:
   allies: 23
   boons: 12
   hexes: 12
   knights: 10
   ruins_types: 5
   ruins_per_type: 10
-constants: !GenericAttributeMap
+constants:
   druid_boon_picks: 3

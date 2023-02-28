@@ -1,9 +1,7 @@
-from time import perf_counter_ns
-
 from util.generators.constrained_product import ProductEQ, ProductLE
 
 
-class GenericAttributeMap:
+class ReadOnlyAttrDict:
     def __init__(self, **kwargs):
         self.__dict__ = kwargs
 
@@ -46,18 +44,7 @@ class CardTypeCombinationGenerator:
             raise KeyError(f"CardTypeCombinationGenerator must contain either of: {', '.join(CardTypeCombinationGenerator.__constraints)}")
 
     def __call__(self):
-        tmp_t = perf_counter_ns()
-        result = self.__gen(*(range(t + 1) for t in self.card_totals.values()), s=self.__s)
-        self.call_t += perf_counter_ns() - tmp_t
-        self.n += 1
-        return result
+        return self.__gen(*(range(t + 1) for t in self.card_totals.values()), s=self.__s)
 
     def __repr__(self):
-        return f"Card combinations generator with {self.__constraint} = {self.__s} and card totals {self.card_totals}"
-
-
-class Config:
-    def __init__(self, generators, other_card_totals, constants):
-        self.generators = generators
-        self.other_card_totals = other_card_totals
-        self.constants = constants
+        return f"{self.__constraint} = {self.__s}, {self.card_totals}"
