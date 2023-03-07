@@ -4,7 +4,7 @@ import yaml
 from config.types import *
 
 
-class ConfigLoader(yaml.SafeLoader):
+class ConfigLoader(yaml.Loader):
     def __init__(self, stream):
         super().__init__(stream)
 
