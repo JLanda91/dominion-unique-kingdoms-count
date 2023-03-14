@@ -6,7 +6,7 @@ from config.types import ReadOnlyAttrDict
 import unittest
 
 
-class ConfigLoaderDoesNotChangeDefaultLoader(unittest.TestCase):
+class TestConfigLoaderDoesNotChangeDefaultLoader(unittest.TestCase):
     def setUp(self) -> None:
         self.sample_yaml_string = """
         a: 1
