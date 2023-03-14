@@ -1,6 +1,6 @@
 # This workflow will install Python dependencies, and run discovered unittests
 
-name: Unittest Dominion Unique Kingdoms Count
+name: Tests
 
 on:
   push:
