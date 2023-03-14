@@ -16,7 +16,7 @@ class TestBinomialCoefficientProduct(unittest.TestCase):
         [(4, 5, 3,), (2, 3, -1,), None],
         [(4, 5, -1,), (2, 3, 2,), None],
     ])
-    def test_outcome(self, n_collection, k_collection, outcome):
+    def test_binomial_coefficient_product(self, n_collection, k_collection, outcome):
         if len(n_collection) != len(k_collection):
             self.assertRaises(AssertionError, binomial_coefficient_product, n_collection, k_collection)
         elif any(map(lambda x: x < 0, n_collection + k_collection)):
