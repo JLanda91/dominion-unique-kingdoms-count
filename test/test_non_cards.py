@@ -1,28 +1,27 @@
 import unittest
-from unittest.mock import Mock, patch, call
-from parameterized import parameterized
-
+from unittest.mock import patch
 from factors_functions import non_cards_factors
 
 
 class TestNonCardsFactors(unittest.TestCase):
 
+    def setUp(self) -> None:
+        self.n_collection = (4,5,6)
+        self.k_collection = (1,2,3)
+
     @patch('factors_functions.non_cards.CONFIG')
     @patch('factors_functions.non_cards.binomial_coefficient_product')
-    def test_non_cards_factors(self, binom_mock, config_mock):
-        n_collection = (4,5,6)
-        k_collection = (1,2,3)
-
+    def test_non_cards_factors(self, mock_binom, mock_config):
         # Setting up return values for the config totals and binom product
-        config_mock.generators.non_cards.card_totals.values.return_value = n_collection
-        binom_mock.return_value = 42
+        mock_config.generators.non_cards.card_totals.values.return_value = self.n_collection
+        mock_binom.return_value = 42
 
         # Run function and test outcome
-        self.assertEqual((42, 42), non_cards_factors(*k_collection))
+        self.assertEqual((42, 42), non_cards_factors(*self.k_collection))
 
         # mock asserts
-        config_mock.generators.non_cards.card_totals.values.assert_called_once()
-        binom_mock.called_once_with(n_collection, k_collection)
+        mock_config.generators.non_cards.card_totals.values.assert_called_once()
+        mock_binom.called_once_with(self.n_collection, self.k_collection)
 
 
 if __name__ == '__main__':

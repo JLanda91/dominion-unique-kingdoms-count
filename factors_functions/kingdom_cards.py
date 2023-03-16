@@ -45,7 +45,6 @@ def kingdom_cards_factors(
                     * mul_if(fate_total, (BOON_SHUFFLE_CHOICES_DRUID if druid else BOON_SHUFFLE_CHOICES_NO_DRUID)) \
                     * mul_if(doom_total, HEX_SHUFFLE_CHOICES) \
                     * mul_if(knights, KNIGHT_SHUFFLE_CHOICES) \
-                    * mul_if(action_looter_high,
-                             RUINS_CHOICES)
+                    * mul_if(action_looter_high, RUINS_CHOICES)
 
     return result_unordered, result_ordered
