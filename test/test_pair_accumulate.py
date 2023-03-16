@@ -1,7 +1,8 @@
-from util.accumulators import pair_product, pair_sum
-
 import unittest
 from parameterized import parameterized
+
+from util.accumulators import pair_product, pair_sum
+
 
 class TestPairAccumulate(unittest.TestCase):
 

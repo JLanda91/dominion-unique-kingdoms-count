@@ -1,9 +1,8 @@
 import yaml
+import unittest
+
 from config import ConfigLoader
 from config.types import ReadOnlyAttrDict
-
-
-import unittest
 
 
 class TestConfigLoaderDoesNotChangeDefaultLoader(unittest.TestCase):

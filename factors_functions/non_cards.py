@@ -8,7 +8,7 @@ def non_cards_factors(
     way_of_the_mouse
 ):
     result_unordered = binomial_coefficient_product(CONFIG.generators.non_cards.card_totals.values(),
-                                                    locals().values())
+                                                    tuple(locals().values()))
     result_ordered = result_unordered
 
     return result_unordered, result_ordered

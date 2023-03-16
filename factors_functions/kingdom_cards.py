@@ -23,7 +23,7 @@ def kingdom_cards_factors(
     knights
 ):
     binomial_product = binomial_coefficient_product(CONFIG.generators.kingdom_cards.card_totals.values(),
-                                                    locals().values())
+                                                    tuple(locals().values()))
 
     liaison_total = action_liaison_low + \
                     other_liaison_low + \

@@ -1,7 +1,8 @@
-from util.conditional_mul import mul_if
-
 import unittest
 from parameterized import parameterized
+
+from util.conditional_mul import mul_if
+
 
 class TestConditionalMul(unittest.TestCase):
 

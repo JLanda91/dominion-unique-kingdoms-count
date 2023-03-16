@@ -1,7 +1,8 @@
-from util.accumulators import binomial_coefficient_product
-
 import unittest
 from parameterized import parameterized
+
+from util.accumulators import binomial_coefficient_product
+
 
 class TestBinomialCoefficientProduct(unittest.TestCase):
 
