@@ -1,5 +1,10 @@
-from util.constants import *
-from util.conditional_mul import mul_if
+from dominion_unique_kingdoms_count.util.constants import (
+    ACTION_LOW_CARD_TOTALS,
+)
+
+from dominion_unique_kingdoms_count.util.conditional_mul import (
+    mul_if,
+)
 
 
 def joint_factors(
@@ -43,10 +48,8 @@ def joint_factors(
 
     obelisk_choices = action_low_total + action_high_total
 
-    result_unordered = mul_if(way_of_the_mouse, (ACTION_LOW_CARD_TOTALS - action_low_total)) \
-                     * mul_if(obelisk and obelisk_choices,
-                              obelisk_choices + low_total * (obelisk_choices + 1),
-                              1 + low_total)
+    result_unordered = mul_if(way_of_the_mouse, ACTION_LOW_CARD_TOTALS - action_low_total) \
+                     * mul_if(obelisk and obelisk_choices, obelisk_choices + low_total * (obelisk_choices + 1), 1 + low_total)
 
     result_ordered = result_unordered
 

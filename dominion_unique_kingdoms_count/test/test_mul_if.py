@@ -1,7 +1,9 @@
 import unittest
 from parameterized import parameterized
 
-from util.conditional_mul import mul_if
+from dominion_unique_kingdoms_count.util.conditional_mul import (
+    mul_if,
+)
 
 
 class TestConditionalMul(unittest.TestCase):

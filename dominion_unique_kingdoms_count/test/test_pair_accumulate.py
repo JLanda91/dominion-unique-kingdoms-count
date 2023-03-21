@@ -1,7 +1,10 @@
 import unittest
 from parameterized import parameterized
 
-from util.accumulators import pair_product, pair_sum
+from dominion_unique_kingdoms_count.util.accumulators import (
+    pair_product,
+    pair_sum,
+)
 
 
 class TestPairAccumulate(unittest.TestCase):

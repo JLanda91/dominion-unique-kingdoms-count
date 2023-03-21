@@ -1,4 +1,7 @@
-from util.generators.constrained_product import ProductEQ, ProductLE
+from dominion_unique_kingdoms_count.util.generators import (
+    ProductEQ,
+    ProductLE
+)
 
 
 class CardTypeCombinationGenerator:

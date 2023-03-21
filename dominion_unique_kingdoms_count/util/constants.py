@@ -1,7 +1,7 @@
 from math import factorial, comb
 
-from config import CONFIG
-from util.generators import ProductEQ
+from dominion_unique_kingdoms_count.config import CONFIG
+from dominion_unique_kingdoms_count.util.generators import ProductEQ
 
 
 def __num_ruins_choices(num_players: int):

@@ -1,7 +1,10 @@
 import os
 import yaml
 
-from config.types import *
+from dominion_unique_kingdoms_count.config.types import (
+    ReadOnlyAttrDict,
+    CardTypeCombinationGenerator
+)
 
 
 class ConfigLoader(yaml.Loader):

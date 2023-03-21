@@ -1,6 +1,8 @@
 import unittest
 from unittest.mock import patch
-from factors_functions import non_cards_factors
+from dominion_unique_kingdoms_count.factors_functions import (
+    non_cards_factors,
+)
 
 
 class TestNonCardsFactors(unittest.TestCase):

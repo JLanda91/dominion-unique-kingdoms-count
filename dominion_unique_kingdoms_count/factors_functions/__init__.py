@@ -1,10 +1,20 @@
 from inspect import signature
 
-from factors_functions.kingdom_cards import kingdom_cards_factors
-from factors_functions.non_cards import non_cards_factors
-from factors_functions.joint import joint_factors
+from dominion_unique_kingdoms_count.factors_functions.kingdom_cards import (
+    kingdom_cards_factors
+)
 
-from config import CONFIG
+from dominion_unique_kingdoms_count.factors_functions.non_cards import (
+    non_cards_factors
+)
+
+from dominion_unique_kingdoms_count.factors_functions.joint import (
+    joint_factors
+)
+
+from dominion_unique_kingdoms_count.config import (
+    CONFIG
+)
 
 
 def __validate_factor_function_signatures():

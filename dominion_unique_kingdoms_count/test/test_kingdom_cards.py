@@ -2,7 +2,9 @@ import unittest
 from unittest.mock import patch, call
 from parameterized import parameterized
 
-from factors_functions import kingdom_cards_factors
+from dominion_unique_kingdoms_count.factors_functions import (
+    kingdom_cards_factors,
+)
 
 
 class TestKingdomCardsFactors(unittest.TestCase):

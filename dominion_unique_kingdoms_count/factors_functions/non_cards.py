@@ -1,12 +1,13 @@
-from util.accumulators import binomial_coefficient_product
-from config import CONFIG
+from dominion_unique_kingdoms_count.util.accumulators import (
+    binomial_coefficient_product,
+)
+
+from dominion_unique_kingdoms_count.config import (
+    CONFIG,
+)
 
 
-def non_cards_factors(
-    landscapes,
-    obelisk,
-    way_of_the_mouse
-):
+def non_cards_factors(landscapes, obelisk, way_of_the_mouse):
     result_unordered = binomial_coefficient_product(CONFIG.generators.non_cards.card_totals.values(),
                                                     tuple(locals().values()))
     result_ordered = result_unordered

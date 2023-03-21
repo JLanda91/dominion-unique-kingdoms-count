@@ -1,14 +1,35 @@
 from itertools import product
-from time import perf_counter_ns
 
-from config import CONFIG
-from util.accumulators.pair_accumulate import pair_sum, pair_product
-from util.generators.identity_with_map import IdentityWithMap
-from util.time_func import time_func_s
-from factors_functions import kingdom_cards_factors, non_cards_factors, joint_factors
+from dominion_unique_kingdoms_count.config import (
+    CONFIG
+)
+
+from dominion_unique_kingdoms_count.util.accumulators import (
+    pair_sum,
+    pair_product
+)
+
+from dominion_unique_kingdoms_count.util.generators import (
+    IdentityWithMap
+)
+
+from dominion_unique_kingdoms_count.util.time_func import (
+    time_func_s
+)
+
+from dominion_unique_kingdoms_count.factors_functions import (
+    kingdom_cards_factors,
+    non_cards_factors,
+    joint_factors
+)
 
 
-def all_factors(kingdom_combination, kingdom_factors, non_combination, non_factors):
+def all_factors(
+        kingdom_combination,
+        kingdom_factors,
+        non_combination,
+        non_factors
+        ):
     return kingdom_factors, non_factors, joint_factors(*kingdom_combination, *non_combination)
 
 
