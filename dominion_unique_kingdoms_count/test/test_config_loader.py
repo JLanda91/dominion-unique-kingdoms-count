@@ -1,9 +1,13 @@
 import yaml
-from config import ConfigLoader
-from config.types import ReadOnlyAttrDict
-
-
 import unittest
+
+from dominion_unique_kingdoms_count.config import (
+    ConfigLoader,
+)
+
+from dominion_unique_kingdoms_count.config.types import (
+    ReadOnlyAttrDict,
+)
 
 
 class TestConfigLoaderDoesNotChangeDefaultLoader(unittest.TestCase):
