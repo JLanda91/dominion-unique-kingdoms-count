@@ -7,7 +7,11 @@ from dominion_unique_kingdoms_count.config import (
 )
 
 
-def non_cards_factors(landscapes, obelisk, way_of_the_mouse):
+def non_cards_factors(
+        landscapes: int,
+        obelisk: int,
+        way_of_the_mouse: int,
+):
     result_unordered = binomial_coefficient_product(CONFIG.generators.non_cards.card_totals.values(),
                                                     tuple(locals().values()))
     result_ordered = result_unordered

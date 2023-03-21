@@ -1,4 +1,4 @@
-def mul_if(condition, multiplier_true, multiplier_false=1):
+def mul_if(condition: bool, multiplier_true: int, multiplier_false:int =1):
     return multiplier_true if condition else multiplier_false
 
 
