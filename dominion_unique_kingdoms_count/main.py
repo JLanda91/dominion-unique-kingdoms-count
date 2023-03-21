@@ -24,12 +24,7 @@ from dominion_unique_kingdoms_count.factors_functions import (
 )
 
 
-def all_factors(
-        kingdom_combination,
-        kingdom_factors,
-        non_combination,
-        non_factors
-        ):
+def all_factors(kingdom_combination, kingdom_factors, non_combination, non_factors):
     return kingdom_factors, non_factors, joint_factors(*kingdom_combination, *non_combination)
 
 
